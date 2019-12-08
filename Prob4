@@ -1,0 +1,60 @@
+PROBLEM 4: 
+  In your physics class, projectile motion has two components: constant-velocity motion
+in the horizontal direction and free-fall motion in the vertical direction. However, in reality, the
+horizontal motion has acceleration due to air resistance, wind, and other factors. The goal of this
+problem is to visualize the trajectory of a projectile for both ideal and non-ideal motion.
+Create a program that plots the trajectory, from the initial height to the ground, of a projectile
+accelerating both in the horizontal and vertical directions. The program must accept the following as
+inputs:
+
+• the initial height of the projectile above the ground in meters;
+• the magnitude of the velocity in m/s;
+• the angle in degrees with respect to the +𝑥-axis at which the projectile is fired;
+• the 𝑥-component of the acceleration, considering the sign, in m/s^2;
+• the 𝑦-component of the acceleration, considering the sign, in m/s^2;
+
+
+#Machine Problem 4: Projectile Motion
+
+import matplotlib.pyplot as plt
+import numpy as np
+import sys
+
+H = float(input('Initial height of the projectile above the ground in meters: '))
+Vo = float(input('Magnitude of the velocity in m/s: '))
+ang = float(input('Angle of the projectile in degrees with respect to the + 𝑥-axis: '))
+Ax = float(input('𝑥-component of the acceleration in m/s^2: '))
+Ay= float(input('y-component of the acceleration in m/s^2: '))
+
+if Ay == 0: 
+    sys.exit('There is no free-fall when Acceleration in y-axis is 0')
+    
+d = np.sqrt((Vo*np.sin(ang))**2 - 4*(1/2*Ay)*H) 
+       
+tmax = (-Vo*np.sin(ang)+d)/Ay #final time
+    
+t= np.linspace(0,tmax) #time
+    
+if tmax <= 0:
+    tmax = (-Vo*np.sin(ang)-d)/Ay
+    
+t= np.linspace(0,tmax) #time
+    
+X = Vo*np.cos(ang)*(t) + (1/2)*(Ax)*(t)**2 
+#solving for x actual
+
+Xi= Vo*np.cos(ang)*t 
+#solving for x ideal
+
+y = H+Vo*np.sin(ang)*(t) + (1/2)*(Ay)*(t)**2 
+#solving for y
+
+
+plt.title('Problem 4: Projectile Motion')
+plt.xlabel('range')
+plt.ylabel('height')
+plt.grid()
+plt.plot(X,y, label="Actual")
+plt.plot(Xi,y,'.r', label="Ideal")
+plt.legend(loc="upper left")
+plt.show()
