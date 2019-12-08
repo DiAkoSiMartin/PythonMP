@@ -9,6 +9,8 @@ Limit your polynomials from the 1st degree up to the 10th degree. The set of poi
 the form of an 𝑛 × 2 matrix where 𝑛 is the number of experimental data. Note that the data points
 should only be the user input, and not 𝑛.
 
+
+----------------------------------------------
 #MACHINE PROBLEM 3
 
 import numpy as np
