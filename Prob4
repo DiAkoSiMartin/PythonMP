@@ -50,11 +50,12 @@ y = H+Vo*np.sin(ang)*(t) + (1/2)*(Ay)*(t)**2
 #solving for y
 
 
-plt.title('Problem 4: Projectile Motion')
-plt.xlabel('range')
-plt.ylabel('height')
+plt.title('Projectile Motion')
+plt.xlabel('Range')
+plt.ylabel('Height')
 plt.grid()
 plt.plot(X,y, label="Actual")
 plt.plot(Xi,y,'.r', label="Ideal")
-plt.legend(loc="upper left")
+plt.legend(loc="upper right")
 plt.show()
+
