@@ -1,0 +1,41 @@
+PROBLEM 2: 
+ 
+ Write a program that accepts as input three points (𝑥, 𝑦) lying on a circle in a 2-
+dimensional Cartesian plane. The program must return the following parameters of the circle on
+which the three points lie:
+• center (ℎ, 𝑘);
+• radius 𝑟;
+• vector [𝐷, 𝐸, 𝐹], where 𝐷, 𝐸, and 𝐹 are the coefficients in the general equation of a circle 
+                          𝑥^2 +𝑦^2 + 𝐷𝑥 + 𝐸𝑦 + 𝐹 = 0;
+
+Recall from your analytic geometry/pre-calculus class that the standard and general equations,
+respectively, are given as
+                          (𝑥 − ℎ)^2 + (𝑦 − 𝑘)^2 = 𝑟^2
+                          𝑥^2 + 𝑦^2 + 𝐷𝑥 + 𝐸𝑦 + 𝐹 = 0
+                          
+      -----------------------------------                    
+#Machine Problem 2
+
+import numpy as np
+
+x1, y1 = map(int, input("Enter the first point: ").split())
+x2, y2 = map(int, input("Enter the second point: ").split())
+x3, y3 = map(int, input("Enter the third point: ").split())
+
+# Coefficients of variable X for the systems of linear equations
+A = np.array([[x1, y1, 1], [x2, y2, 1], [x3, y3, 1]])
+
+# Constants 
+B = np.array([[-(x1**2 + y1**2), -(x2**2 + y2**2), -(x3**2 + y3**2)]])
+B = np.transpose(B)
+
+# Solutions to the systems of equations
+C = np.linalg.inv(A).dot(B)
+
+h = -C[0]/2
+k = -C[1]/2
+r = np.sqrt((C[0]**2 + C[1]**2 - 4*C[2])/4)
+
+print('Center: ', h,'and', k)
+print('Radius of the Circle: ', r)
+print('The coefficients D, E, F of the general equation are: ', C) 
