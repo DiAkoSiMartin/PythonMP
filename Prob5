@@ -12,7 +12,7 @@ Superimpose the graphs of 𝑥(𝑛) and of 𝑦(𝑛) with different line color
 forget to put legends.
 
 
-
+----------------------------------
 #Machine Problem 5
 
 import matplotlib.pyplot as plot
