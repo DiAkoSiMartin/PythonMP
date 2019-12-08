@@ -38,4 +38,4 @@ r = np.sqrt((C[0]**2 + C[1]**2 - 4*C[2])/4)
 
 print('Center: ', h,'and', k)
 print('Radius of the Circle: ', r)
-print('The coefficients D, E, F of the general equation are: ', C) 
+print('The coefficients D, E, F of the general equation are: ', C, 'respectively') 
