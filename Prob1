@@ -1,0 +1,31 @@
+PROBLEM 1: Write a program that will implement the function
+𝑓(𝑛) = 
+{ 𝑛^2 − 7, 𝑛 < 9
+{  𝑓(𝑛 − 10), 𝑛 ≥ 10
+
+
+#MACHINE PROBLEM 1
+
+import matplotlib.pyplot as plot 
+
+n = list(range(0,100)) 
+k = []
+def f():
+    for i in range(0,100): 
+        m = (i**2)-7 #The equation for the loop
+        if i<=9:
+            k.append(m)
+
+        else:
+            while i >=10:
+                i = i-10
+                if i<10:
+                    m = (i**2)-7 #The equation for the loop
+                    k.append(m)
+    return i
+f()
+plot.title('MACHINE PROBLEM 1: Stem()')
+plot.xlabel('x-axis')
+plot.ylabel('y-axis')
+plot.grid()
+plot.stem(n, k, '-k', use_line_collection = True) # code for stem plotting
