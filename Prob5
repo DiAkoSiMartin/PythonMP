@@ -1,0 +1,59 @@
+PROBLEM 5: 
+For n = 0:199, given the user-input 𝑥(𝑛), determine 𝑦(𝑛) if
+𝑦(𝑛) = 
+{ −1.5𝑥(𝑛) + 2𝑥(𝑛 + 1) − 0.5𝑥(𝑛 + 2), 𝑛 = 0
+{ 0.5𝑥(𝑛 + 1) − 0.5𝑥(𝑛 − 1), 0 < 𝑛 < 198
+{ 1.5𝑥(𝑛) − 2𝑥(𝑛 − 1) + 0.5𝑥(𝑛 − 2), 𝑛 = 199
+
+Test your program for
+𝑥(𝑛) = sin ((3𝜋/100)(n))
+
+Superimpose the graphs of 𝑥(𝑛) and of 𝑦(𝑛) with different line colors in one figure window. Do not
+forget to put legends.
+
+
+
+#Machine Problem 5
+
+import matplotlib.pyplot as plot
+
+import numpy as np
+
+import matplotlib.patches as mpatches
+
+n = np.linspace(0,199,199)
+
+
+def x(n):
+    e=eval(x1)
+    return e
+
+x1 = input("Equation of x: ")
+# x =  np.sin((3*np.pi*n)/100) for proving
+
+for i in range(0,199):
+    
+    a = i == 0
+    b = 0 <i< 198
+    c = i == 199
+ 
+    y1 = int(a)*((-1.5*x(n))+(2*x(n+1))-(0.5*x(n+2)))
+    y2 = int(b)*((0.5*x(n+1))-(0.5*x(n-1)))
+    y3 = int(c)*((1.5*x(n))-(2*x(n-1))+(0.5*x(n-2)))
+   
+    y= y1 + y2 + y3
+   
+    plot.plot(x(n),color='r')
+    
+    plot.plot(y,color='b')
+    
+    plot.xlabel('x')
+    plot.ylabel('y(n)')
+    
+    red_patch = mpatches.Patch(color='red', label='x(n)')
+    blue_patch = mpatches.Patch(color='blue', label='y(n)')
+    plot.legend(handles=[red_patch, blue_patch])
+    
+    plot.title('Machine Problem 5')
+    
+    plot.show
