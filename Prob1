@@ -3,7 +3,7 @@ PROBLEM 1: Write a program that will implement the function
 { 𝑛^2 − 7, 𝑛 < 9
 {  𝑓(𝑛 − 10), 𝑛 ≥ 10
 
-
+------------------------------------------------
 #MACHINE PROBLEM 1
 
 import matplotlib.pyplot as plot 
